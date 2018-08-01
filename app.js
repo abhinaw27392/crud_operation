@@ -5,7 +5,7 @@ var router = require('./routes/routes')
 //initialise our express app
 const app = express();
 
-
+//declare port and create server
 let port = 3000;
 app.listen(port, () => {
     console.log("server is running on the port:" + port);

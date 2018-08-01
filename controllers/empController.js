@@ -25,7 +25,17 @@ const setEmpData = (req, res) => {
     });
 }
 
+const updateData = (req, res) => {
+    return crudService.updateData(req.body)
+    .then((data) => {
+        res.send(data);
+    }).catch((err) => {
+        res.send(err.message);
+    });
+}
+
 module.exports = {
     "getEmpData": Promise.method(getEmpData),
-    "setEmpData": Promise.method(setEmpData)
+    "setEmpData": Promise.method(setEmpData),
+    "updateData": Promise.method(updateData)
 };
