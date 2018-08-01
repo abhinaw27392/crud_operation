@@ -34,8 +34,17 @@ const updateData = (req, res) => {
     });
 }
 
+const delData = (req, res) => {
+    return crudService.delData(req.params.empId)
+    .then(() => {
+        res.sendStatus(200);
+    }).catch((err) => {
+        res.send(err.message);
+    });
+}
 module.exports = {
     "getEmpData": Promise.method(getEmpData),
     "setEmpData": Promise.method(setEmpData),
-    "updateData": Promise.method(updateData)
+    "updateData": Promise.method(updateData),
+    "delData": Promise.method(delData)
 };

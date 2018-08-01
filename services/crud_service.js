@@ -43,8 +43,20 @@ const updateData = (formData) => {
     });
 }
 
+const delData = (empId) => {
+    return db.employee.find({
+        where:{empId: empId}
+    })
+    .then((data) => {
+        return db.employee.destroy({
+            where:{empId: data.empId}
+        })
+    })
+}
+
 module.exports = {
     "getEmpData": Promise.method(getEmpData),
     "setEmpData": Promise.method(setEmpData),
-    "updateData": Promise.method(updateData)
+    "updateData": Promise.method(updateData),
+    "delData": Promise.method(delData)
 }
