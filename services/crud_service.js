@@ -11,7 +11,16 @@ const getEmpData = (empId) => {
         }
     })
 }
+const setEmpData = (formData) => {
+    return db.employee.create({
+        empId: formData.empId,
+        empName: formData.empName,
+        mob: formData.mob,
+        email: formData.email
+    })
+}
 
 module.exports = {
-    "getEmpData": Promise.method(getEmpData)
+    "getEmpData": Promise.method(getEmpData),
+    "setEmpData": Promise.method(setEmpData)
 }
